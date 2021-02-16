@@ -1,0 +1,21 @@
+version: "2"
+services:
+  bot:
+    build:
+      context: .
+      args:
+        - TG_SONGSPLEETBOT_KEY
+    volumes:
+      - audio_files:/var/media
+      - spleeter_model:/var/spleeter/model
+      - ./config.yaml:/usr/app/config.yaml
+    environment:
+      TG_SONGSPLEETBOT_KEY: ${TG_SONGSPLEETBOT_KEY}
+      MEDIA_PATH: /var/media
+      MODEL_PATH: /var/spleeter/model
+    image: mikekurkin/songspleetbot:latest
+    restart: on-failure
+ 
+volumes:
+  audio_files:
+  spleeter_model:

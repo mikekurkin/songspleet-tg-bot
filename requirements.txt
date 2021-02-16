@@ -1,0 +1,4 @@
+pydub
+python-telegram-bot
+pyyaml
+spleeter
